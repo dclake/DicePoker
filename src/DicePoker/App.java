@@ -16,11 +16,15 @@ public class App {
 		bankBalance=startBalance;
 		JOptionPane.showMessageDialog(null,showBalance(bankBalance));
 		
-		rollOne = dieOne[(int) (Math.random()*6)];
-		JOptionPane.showMessageDialog(null,rollOne);
+//		rollOne = dieOne[(int) (Math.random()*6)];
+//		JOptionPane.showMessageDialog(null,rollOne);
 		
-		rollOne = dieOne[(int) (Math.random()*6)];
-		JOptionPane.showMessageDialog(null,rollOne);
+		JOptionPane.showMessageDialog(null,diceRoll(dieOne));
+		JOptionPane.showMessageDialog(null,diceRoll(dieOne));
+		JOptionPane.showMessageDialog(null,diceRoll(dieOne));
+
+
+
 
 
 		
@@ -39,6 +43,13 @@ public class App {
 		String balanceMessage = "Your Bank balance is $"+ bankBalance;
 		return balanceMessage;
 				
+	}
+	
+	public static int diceRoll(int [] die) {
+		int roll = die[(int) (Math.random()*die.length)];
+//		JOptionPane.showMessageDialog(null,rollOne);
+		return roll;
+		
 	}
 	
 	
