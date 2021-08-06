@@ -7,21 +7,27 @@ public class App {
 	public static void main(String[] args) {
 //Declare variables
 		int startBalance = 6, betCost = 1, betTotal = 5,betAmount = 0, placeBet = 1;
-		int bankBalance, rollOne;
-		int []dieOne = {1,2,3,4,5,6};
+		int bankBalance, rollOne, rollTwo;
+		int []dieOptions = {1,2,3,4,5,6};
 		
-		String betAsString;
+		
+		String rollResults;
 		
 		
 		bankBalance=startBalance;
 		JOptionPane.showMessageDialog(null,showBalance(bankBalance));
 		
-//		rollOne = dieOne[(int) (Math.random()*6)];
-//		JOptionPane.showMessageDialog(null,rollOne);
+		rollOne = diceRoll(dieOptions);
+		rollTwo = diceRoll(dieOptions);
 		
-		JOptionPane.showMessageDialog(null,diceRoll(dieOne));
-		JOptionPane.showMessageDialog(null,diceRoll(dieOne));
-		JOptionPane.showMessageDialog(null,diceRoll(dieOne));
+		rollResults = "Die One: " + rollOne + "\nDie Two: " + rollTwo;
+		
+		JOptionPane.showMessageDialog(null,rollResults);
+
+		
+//		JOptionPane.showMessageDialog(null,diceRoll(dieOptions));
+//		JOptionPane.showMessageDialog(null,diceRoll(dieOptions));
+//		JOptionPane.showMessageDialog(null,diceRoll(dieOptions));
 
 
 
