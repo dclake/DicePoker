@@ -15,7 +15,7 @@ public class App {
 		
 		Die die1 = new Die();
 		
-		JOptionPane.showMessageDialog(null,die1.readFace());
+		JOptionPane.showMessageDialog(null,die1.getFace());
 		
 		
 		bankBalance=startBalance;

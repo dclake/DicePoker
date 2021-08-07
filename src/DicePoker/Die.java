@@ -1,9 +1,10 @@
 package DicePoker;
 
 public class Die {
-	public int face = 1;
+	private int face = 1;
 	
-	public int readFace() {
+	
+	public int getFace() {
 		return face;
 	}
 	
