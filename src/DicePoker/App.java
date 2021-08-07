@@ -18,17 +18,12 @@ public class App {
 				
 		rollOne = die1.roll();
 		rollTwo = die2.roll();
-				
-		
 		
 		
 		bankBalance=startBalance;
 		JOptionPane.showMessageDialog(null,showBalance(bankBalance));
 		
-		
-//		rollOne = diceRoll(dieOptions);
-//		rollTwo = diceRoll(dieOptions);
-		
+				
 		rollResults = "Die One: " + rollOne + "\nDie Two: " + rollTwo;
 		
 		JOptionPane.showMessageDialog(null,rollResults);
@@ -74,13 +69,9 @@ public class App {
 				
 	}
 	
-	public static int diceRoll(int [] die) {
-		int roll = die[(int) (Math.random()*die.length)];
-//		JOptionPane.showMessageDialog(null,rollOne);
-		return roll;
+	
 		
 	}
 	
 	
 
-}
