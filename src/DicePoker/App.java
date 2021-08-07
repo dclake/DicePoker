@@ -13,6 +13,10 @@ public class App {
 		
 		String rollResults, output;
 		
+		Die die1 = new Die();
+		
+		JOptionPane.showMessageDialog(null,die1.readFace());
+		
 		
 		bankBalance=startBalance;
 		JOptionPane.showMessageDialog(null,showBalance(bankBalance));
@@ -34,7 +38,7 @@ public class App {
 			if (rollTwo-rollOne == 1|| rollOne -rollTwo == 1) {
 				winnings = betAmount *2;
 				bankBalance = bankBalance + winnings;
-				output = "You won!!! \n You earn double your bet";
+				output = "You won!!! \nYou earn double your bet";
 				JOptionPane.showMessageDialog(null,output);
 			}
 			else {
