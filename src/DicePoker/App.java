@@ -7,8 +7,8 @@ public class App {
 	public static void main(String[] args) {
 //Declare variables
 		int startBalance = 6, betCost = 1, betTotal = 5,betAmount = 1, placeBet = 1;
+		int betCount = 0;
 		int bankBalance, rollOne, rollTwo, winnings;
-		int []dieOptions = {1,2,3,4,5,6};
 		
 		
 		String rollResults, output;
@@ -16,12 +16,18 @@ public class App {
 		Die die1 = new Die();
 		Die die2 = new Die();
 				
-		rollOne = die1.roll();
-		rollTwo = die2.roll();
 		
 		
 		bankBalance=startBalance;
-		JOptionPane.showMessageDialog(null,showBalance(bankBalance));
+
+		
+		
+		while (betCount != 5) {
+			
+			JOptionPane.showMessageDialog(null,showBalance(bankBalance));
+			
+		rollOne = die1.roll();
+		rollTwo = die2.roll();
 		
 				
 		rollResults = "Die One: " + rollOne + "\nDie Two: " + rollTwo;
@@ -42,14 +48,15 @@ public class App {
 				JOptionPane.showMessageDialog(null,output);
 			}
 			else {
-			bankBalance = bankBalance + betAmount;
 			output = "You Loose!!!";
+			bankBalance = bankBalance -1;
 			JOptionPane.showMessageDialog(null,output);
 			}
 		}
+		++betCount;
+		}
 
-
-
+		JOptionPane.showMessageDialog(null,showBalance(bankBalance));
 
 		
 //		placeBet = JOptionPane.showConfirmDialog (null, "Would you like to place a bet for $1","Place Bet", placeBet);
