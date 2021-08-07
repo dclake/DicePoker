@@ -1,18 +1,17 @@
 package DicePoker;
 
 public class Die {
-	private static int face = 1;
+	private static int dieValue;
 	
 	
-	public int getFace() {
-		return face;
+	public int getDieValue() {
+		return dieValue;
 	}
 	
 	public static int roll() {
-		face = (int)(Math.random()*6);
-		face = face++;
-//		JOptionPane.showMessageDialog(null,rollOne);
-		return face;
+		dieValue = (int)(Math.random()*6)+1;
+//		face = face++;
+		return dieValue;
 	}
-
+	
 }

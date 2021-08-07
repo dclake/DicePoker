@@ -14,22 +14,20 @@ public class App {
 		String rollResults, output;
 		
 		Die die1 = new Die();
-		
-		JOptionPane.showMessageDialog(null,die1.getFace());
-		
-		die1.roll();
-		
-		JOptionPane.showMessageDialog(null,die1.getFace());
-		
-		
+		Die die2 = new Die();
+				
+		rollOne = die1.roll();
+		rollTwo = die2.roll();
+				
 		
 		
 		
 		bankBalance=startBalance;
 		JOptionPane.showMessageDialog(null,showBalance(bankBalance));
 		
-		rollOne = diceRoll(dieOptions);
-		rollTwo = diceRoll(dieOptions);
+		
+//		rollOne = diceRoll(dieOptions);
+//		rollTwo = diceRoll(dieOptions);
 		
 		rollResults = "Die One: " + rollOne + "\nDie Two: " + rollTwo;
 		
@@ -38,11 +36,11 @@ public class App {
 		if (rollOne == rollTwo) {
 			winnings = betAmount *3;
 			bankBalance = bankBalance + winnings;
-			output = "You won!!! \n You earn tripple your bet";
+			output = "You won!!! \nYou earn tripple your bet";
 			JOptionPane.showMessageDialog(null,output);
 		}
 		else {
-			if (rollTwo-rollOne == 1|| rollOne -rollTwo == 1) {
+			if (rollOne - rollTwo == 1|| rollTwo - rollOne == 1) {
 				winnings = betAmount *2;
 				bankBalance = bankBalance + winnings;
 				output = "You won!!! \nYou earn double your bet";
