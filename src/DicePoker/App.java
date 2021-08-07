@@ -17,6 +17,13 @@ public class App {
 		
 		JOptionPane.showMessageDialog(null,die1.getFace());
 		
+		die1.roll();
+		
+		JOptionPane.showMessageDialog(null,die1.getFace());
+		
+		
+		
+		
 		
 		bankBalance=startBalance;
 		JOptionPane.showMessageDialog(null,showBalance(bankBalance));
