@@ -6,12 +6,12 @@ public class App {
 
 	public static void main(String[] args) {
 //Declare variables
-		int startBalance = 6, betCost = 1, betTotal = 5,betAmount = 0, placeBet = 1;
-		int bankBalance, rollOne, rollTwo;
+		int startBalance = 6, betCost = 1, betTotal = 5,betAmount = 1, placeBet = 1;
+		int bankBalance, rollOne, rollTwo, winnings;
 		int []dieOptions = {1,2,3,4,5,6};
 		
 		
-		String rollResults;
+		String rollResults, output;
 		
 		
 		bankBalance=startBalance;
@@ -23,12 +23,26 @@ public class App {
 		rollResults = "Die One: " + rollOne + "\nDie Two: " + rollTwo;
 		
 		JOptionPane.showMessageDialog(null,rollResults);
-
 		
-//		JOptionPane.showMessageDialog(null,diceRoll(dieOptions));
-//		JOptionPane.showMessageDialog(null,diceRoll(dieOptions));
-//		JOptionPane.showMessageDialog(null,diceRoll(dieOptions));
-
+		if (rollOne == rollTwo) {
+			winnings = betAmount *3;
+			bankBalance = bankBalance + winnings;
+			output = "You won!!! \n You earn tripple your bet";
+			JOptionPane.showMessageDialog(null,output);
+		}
+		else {
+			if (rollTwo-rollOne == 1|| rollOne -rollTwo == 1) {
+				winnings = betAmount *2;
+				bankBalance = bankBalance + winnings;
+				output = "You won!!! \n You earn double your bet";
+				JOptionPane.showMessageDialog(null,output);
+			}
+			else {
+			bankBalance = bankBalance + betAmount;
+			output = "You Loose!!!";
+			JOptionPane.showMessageDialog(null,output);
+			}
+		}
 
 
 
