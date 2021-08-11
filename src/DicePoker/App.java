@@ -9,6 +9,7 @@ public class App {
 		int startBalance = 6, betCost = 1, betTotal = 5,betAmount = 1, placeBet = 1;
 		int betCount = 0;
 		int bankBalance, rollOne, rollTwo, winnings;
+		String balanceString;
 		
 		
 		String rollResults, output;
@@ -23,8 +24,19 @@ public class App {
 		
 		
 		while (betCount != 5) {
+			balanceString = showBalance(bankBalance);
+			balanceString = balanceString + "\n Would you like to place a bet of $1?";
 			
-			JOptionPane.showMessageDialog(null,showBalance(bankBalance));
+			//JOptionP
+//			placeBet = JOptionPane.showConfirmDialog (null, "Would you like to place a bet for $1","Place Bet", placeBet);
+//			if(placeBet == JOptionPane.YES_OPTION) { 
+//			    betAmount = 1;
+//			        if(placeBet == JOptionPane.NO_OPTION) {
+//			         
+//			        }
+//			}
+//			JOptionPane.showMessageDialog(null, betAmount);
+			JOptionPane.showConfirmDialog(null, balanceString, "Please Answer", JOptionPane.YES_NO_OPTION);
 			
 		rollOne = die1.roll();
 		rollTwo = die2.roll();
@@ -59,14 +71,7 @@ public class App {
 		JOptionPane.showMessageDialog(null,showBalance(bankBalance));
 
 		
-//		placeBet = JOptionPane.showConfirmDialog (null, "Would you like to place a bet for $1","Place Bet", placeBet);
-//		if(placeBet == JOptionPane.YES_OPTION) { 
-//		    betAmount = 1;
-//		        if(placeBet == JOptionPane.NO_OPTION) {
-//		         
-//		        }
-//		}
-//		JOptionPane.showMessageDialog(null, betAmount);
+//		
 		
 
 	}
