@@ -17,8 +17,8 @@ public class Player {
 		String output;
 		
 		output = "Hey " +this.name;
-		output = output + ", your bank balance is   $" +this.bankBalance;
-//		output = output + " and I am " +this.age +" years old";
+		output = output + ", your bank balance is   $" +this.bankBalance + ".";
+		output = output + "\nIn this round you won $" +this.winnings +".";
 	
 		return output;
 	}//end toString
