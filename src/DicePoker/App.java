@@ -33,8 +33,8 @@ public class App {
 		
 		while (betCount != 5) {
 			//p1.printDetails();
-			balanceString = p1.toString();
-			balanceString = balanceString + "\n Would you like to place a bet of $1?";
+			balanceString = p1.playerBalanceString();
+			balanceString = balanceString + "\nWould you like to place a bet of $1?";
 			
 			//JOptionP
 //			placeBet = JOptionPane.showConfirmDialog (null, "Would you like to place a bet for $1","Place Bet", placeBet);

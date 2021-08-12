@@ -5,7 +5,7 @@ public class Die {
 	private static int smallestDieSide = 1, largestDieSide = 6;
 	
 	
-	public static int roll() {
+	public int roll() {
 		dieValue = (int)(Math.random()* largestDieSide)+ smallestDieSide;
 		return dieValue;
 	}

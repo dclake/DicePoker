@@ -10,10 +10,9 @@ public class Player {
 	
 	
 	public Player() {
-//		String output = "The constructor is being called";
-//		JOptionPane.showMessageDialog(null, output);
 	}
-	public String toString() {
+	
+	public String playerBalanceString() {
 		String output;
 		
 		output = "Hey " +this.name;
