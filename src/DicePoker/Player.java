@@ -10,26 +10,27 @@ public class Player {
 	
 	
 	public Player() {
-		String output = "The constructor is being called";
-		JOptionPane.showMessageDialog(null, output);
+//		String output = "The constructor is being called";
+//		JOptionPane.showMessageDialog(null, output);
 	}
 	public String toString() {
 		String output;
 		
 		output = "Hey " +this.name;
-		output = output + ", your bank balance is   $" +this.bankBalance + ".";
-		output = output + "\nIn this round you won $" +this.winnings +".";
+		output = output + ", your bank balance is $" +this.bankBalance + ".";
+		//output = output + "\nIn this round you won $" +this.winnings +".";
 	
 		return output;
 	}//end toString
 	
 	
-	public void printDetails() {
+	public String printDetails() {
 		String output;
 		
 		output = toString();
 		
 		JOptionPane.showMessageDialog(null, output);
+		return output;
 	}//end printDetails
 	
 	public String getName() {

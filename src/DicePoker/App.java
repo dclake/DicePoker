@@ -22,7 +22,9 @@ public class App {
     	playerName = JOptionPane.showInputDialog("What is your name?");
 
 		p1.setName(playerName);
-		p1.printDetails();
+		p1.setBankBalance(startBalance);
+		
+		
 
 		
 		bankBalance=startBalance;
@@ -30,7 +32,8 @@ public class App {
 		
 		
 		while (betCount != 5) {
-			balanceString = showBalance(bankBalance);
+			//p1.printDetails();
+			balanceString = p1.toString();
 			balanceString = balanceString + "\n Would you like to place a bet of $1?";
 			
 			//JOptionP
@@ -54,20 +57,20 @@ public class App {
 		
 		if (rollOne == rollTwo) {
 			winnings = betAmount *3;
-			bankBalance = bankBalance + winnings;
+			p1.setBankBalance(bankBalance + winnings);
 			output = "You won!!! \nYou earn tripple your bet";
 			JOptionPane.showMessageDialog(null,output);
 		}
 		else {
 			if (rollOne - rollTwo == 1|| rollTwo - rollOne == 1) {
 				winnings = betAmount *2;
-				bankBalance = bankBalance + winnings;
+				p1.setBankBalance(bankBalance + winnings);
 				output = "You won!!! \nYou earn double your bet";
 				JOptionPane.showMessageDialog(null,output);
 			}
 			else {
 			output = "You Loose!!!";
-			bankBalance = bankBalance -1;
+			p1.setBankBalance(bankBalance -1);
 			JOptionPane.showMessageDialog(null,output);
 			}
 		}
