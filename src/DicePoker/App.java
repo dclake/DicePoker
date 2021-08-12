@@ -10,6 +10,7 @@ public class App {
 		int betCount = 0;
 		int bankBalance, rollOne, rollTwo, winnings;
 		String balanceString;
+		String playerName;
 		
 		
 		String rollResults, output;
@@ -17,7 +18,12 @@ public class App {
 		Die die1 = new Die();
 		Die die2 = new Die();
 				
-		
+		Player p1 = new Player();
+    	playerName = JOptionPane.showInputDialog("What is your name?");
+
+		p1.setName(playerName);
+		p1.printDetails();
+
 		
 		bankBalance=startBalance;
 
