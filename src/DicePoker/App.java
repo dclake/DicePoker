@@ -4,14 +4,14 @@ import javax.swing.JOptionPane;
 
 public class App {
 
+	private static final int betCost = 1;
 	public static void main(String[] args) {
 		//Declare variables
 		int startBalance = 6, betCost = 1, betTotal = 5,betAmount = 1, placeBet = 1;
 		int betCount = 0;
 		int bankBalance, rollOne, rollTwo, winnings;
 		String balanceString;
-		String playerName;
-		
+		String playerName, resultString;
 		
 		String rollResults, output;
 		
@@ -39,22 +39,29 @@ public class App {
 //			
 			placeBet = JOptionPane.showConfirmDialog (null, balanceString,"Place Bet", placeBet);
 			
-			winnings = rollDice();
+			winnings = rollDice(betCount);
 			p1.setBankBalance(p1.getBankBalance()+ winnings);
+			++betCount;
 		}
 
 		
 
 	}
-	public static int rollDice() {
+	public static int rollDice(int betCount) {
 		Dice dice = new Dice();
 		
 		dice.roll();
-		dice.checkRollResult();
-	String rollResults = dice.readDice();
-	JOptionPane.showMessageDialog(null,rollResults);
-	int winnings = 1;
-	return winnings;
+		int winnings = dice.checkRollWin(betCost);
+		String resultString = dice.checkRollResult()
+				+ "\nWinnings are $" + winnings;
+		
+		
+	String rollResults = dice.readDice() + "\n" + resultString;
+//	System.out.println(testString);
+
+	
+	JOptionPane.showMessageDialog(null,rollResults, "Bet # "+ (betCount +1), JOptionPane.INFORMATION_MESSAGE);
+ return winnings;
 	
 	
 
@@ -64,6 +71,7 @@ public class App {
 		return balanceMessage;
 				
 	}
+	
 	
 	
 		
