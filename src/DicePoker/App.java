@@ -15,38 +15,42 @@ public class App {
 		
 		String rollResults, output;
 		
-		Dice dice1 = new Dice();
-		Dice.roll();
+		Dice dice = new Dice();
+		
+
+		dice.roll();
+		dice.checkConsecutive();
+		dice.checkEqual();
 				
 		
 		
-//		JOptionPane.showMessageDialog(null,test);
+//		JOptionPane.showMessageDialog(null,dice.readDice());
 		
 
 	
 
 		
-		Die die1 = new Die();
-		Die die2 = new Die();
-				
-		Player p1 = new Player();
-    	playerName = JOptionPane.showInputDialog("What is your name?");
+//		Die die1 = new Die();
+//		Die die2 = new Die();
+//				
+//		Player p1 = new Player();
+//    	playerName = JOptionPane.showInputDialog("What is your name?");
+//
+//		p1.setName(playerName);
+//		p1.setBankBalance(startBalance);
+//		
+//		
+//
+//		
+//		bankBalance=startBalance;
 
-		p1.setName(playerName);
-		p1.setBankBalance(startBalance);
 		
 		
-
-		
-		bankBalance=startBalance;
-
-		
-		
-		while (betCount != 5) {
-			//p1.printDetails();
-			balanceString = p1.playerBalanceString();
-			balanceString = balanceString + "\nWould you like to place a bet of $1?";
-			
+//		while (betCount != 5) {
+//			//p1.printDetails();
+//			balanceString = p1.playerBalanceString();
+//			balanceString = balanceString + "\nWould you like to place a bet of $1?";
+//			
 			//JOptionP
 //			placeBet = JOptionPane.showConfirmDialog (null, "Would you like to place a bet for $1","Place Bet", placeBet);
 //			if(placeBet == JOptionPane.YES_OPTION) { 
@@ -56,41 +60,41 @@ public class App {
 //			        }
 //			}
 //			JOptionPane.showMessageDialog(null, betAmount);
-			JOptionPane.showConfirmDialog(null, balanceString, "Please Answer", JOptionPane.YES_NO_OPTION);
-			
-		rollOne = die1.roll();
-		rollTwo = die2.roll();
+//			JOptionPane.showConfirmDialog(null, balanceString, "Please Answer", JOptionPane.YES_NO_OPTION);
+//			
+//		rollOne = die1.roll();
+//		rollTwo = die2.roll();
 		
 				
-		rollResults = "Die One: " + rollOne + "\nDie Two: " + rollTwo;
-		
-		JOptionPane.showMessageDialog(null,rollResults);
-		
-		if (rollOne == rollTwo) {
-			winnings = betAmount *3;
-			p1.setBankBalance(bankBalance + winnings);
-			output = "You won!!! \nYou earn tripple your bet";
-			JOptionPane.showMessageDialog(null,output);
-		}
-		else {
-			if (rollOne - rollTwo == 1|| rollTwo - rollOne == 1) {
-				winnings = betAmount *2;
-				p1.setBankBalance(bankBalance + winnings);
-				output = "You won!!! \nYou earn double your bet";
-				JOptionPane.showMessageDialog(null,output);
-			}
-			else {
-			output = "You Loose!!!";
-			p1.setBankBalance(bankBalance -1);
-			JOptionPane.showMessageDialog(null,output);
-			}
-		}
-		++betCount;
-		}
-
-		JOptionPane.showMessageDialog(null,showBalance(bankBalance));
-
-		
+//		rollResults = "Die One: " + rollOne + "\nDie Two: " + rollTwo;
+//		
+//		JOptionPane.showMessageDialog(null,rollResults);
+//		
+//		if (rollOne == rollTwo) {
+//			winnings = betAmount *3;
+//			p1.setBankBalance(bankBalance + winnings);
+//			output = "You won!!! \nYou earn tripple your bet";
+//			JOptionPane.showMessageDialog(null,output);
+//		}
+//		else {
+//			if (rollOne - rollTwo == 1|| rollTwo - rollOne == 1) {
+//				winnings = betAmount *2;
+//				p1.setBankBalance(bankBalance + winnings);
+//				output = "You won!!! \nYou earn double your bet";
+//				JOptionPane.showMessageDialog(null,output);
+//			}
+//			else {
+//			output = "You Loose!!!";
+//			p1.setBankBalance(bankBalance -1);
+//			JOptionPane.showMessageDialog(null,output);
+//			}
+//		}
+//		++betCount;
+//		}
+//
+//		JOptionPane.showMessageDialog(null,showBalance(bankBalance));
+//
+//		
 //		
 		
 
