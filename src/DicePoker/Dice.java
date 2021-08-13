@@ -4,6 +4,7 @@ public class Dice {
 	private int numberOfDice =2;
 	private int counter =0;
 	private int[] diceResults = new int[numberOfDice];
+	private String rollResult;
 	private String output;
 
 	
@@ -31,7 +32,7 @@ public class Dice {
 		return output;
 		}
 
-    public void checkConsecutive() {
+    public boolean checkSequential() {
         boolean result = true;
         for (int i = 0; i < diceResults.length - 1; i++) {
             if (((diceResults[i + 1] - diceResults[i]) == 1) ||((diceResults[i + 1] - diceResults[i]) == -1))   {
@@ -44,8 +45,9 @@ public class Dice {
             System.out.println("True");
         else
             System.out.println("False");
+		return result;
     }
-    public void checkEqual() {
+    public boolean checkEqual() {
         boolean result = true;
         for (int i = 0; i < diceResults.length - 1; i++) {
             if ((diceResults[i + 1] == diceResults[i])) {
@@ -58,6 +60,20 @@ public class Dice {
             System.out.println("True");
         else
             System.out.println("False");
+		return result;
+    }
+    
+    public void checkRollResult() {
+    	if(checkSequential() == true) {
+    		rollResult = "sequential";
+    	}
+    	else if (checkEqual()==true) {
+    		rollResult = "equal";
+    	}
+    	else {
+    		rollResult = "nothing";
+    	}
+    	System.out.println(rollResult);
     }
 
 }

@@ -19,8 +19,11 @@ public class App {
 		
 
 		dice.roll();
-		dice.checkConsecutive();
+		dice.checkSequential();
 		dice.checkEqual();
+        System.out.println("");
+        dice.checkRollResult();
+
 				
 		
 		
