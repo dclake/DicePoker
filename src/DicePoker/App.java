@@ -15,6 +15,17 @@ public class App {
 		
 		String rollResults, output;
 		
+		Dice dice1 = new Dice();
+		Dice.roll();
+				
+		
+		
+//		JOptionPane.showMessageDialog(null,test);
+		
+
+	
+
+		
 		Die die1 = new Die();
 		Die die2 = new Die();
 				

@@ -1,12 +1,19 @@
 package DicePoker;
 
 public class Die {
-	private static int dieValue;
-	private static int smallestDieSide = 1, largestDieSide = 6;
+	private int dieValue;
+	private static int smallestDieSide = 1, numberOfSides = 6;
 	
+	public Die() {
+		this.dieValue = 1;
+	}
+	
+	public int setDieValue(int dieValue) {
+		return dieValue;
+	}
 	
 	public int roll() {
-		dieValue = (int)(Math.random()* largestDieSide)+ smallestDieSide;
+		dieValue = (int)(Math.random()* numberOfSides)+ smallestDieSide;
 		return dieValue;
 	}
 	
