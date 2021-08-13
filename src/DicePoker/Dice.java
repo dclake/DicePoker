@@ -4,7 +4,9 @@ public class Dice {
 	private int numberOfDice =2;
 	private int counter =0;
 	private int[] diceResults = new int[numberOfDice];
+	private String dieReading;
 	private String rollResult;
+	
 	private String output;
 
 	
@@ -22,14 +24,14 @@ public class Dice {
     }
 	
 	public String readDice() {
-		output = "";
+		dieReading ="";
 		for(int counter =0; counter < diceResults.length; counter++) {
-			output = output + diceResults[counter] +" ";
-			System.out.println(output);
+			dieReading = dieReading + "Die "+ counter + ": " +diceResults[counter] +"\n";
+			System.out.println(dieReading);
 
 
 		}	
-		return output;
+		return dieReading;
 		}
 
     public boolean checkSequential() {

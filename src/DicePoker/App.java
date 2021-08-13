@@ -15,63 +15,35 @@ public class App {
 		
 		String rollResults, output;
 		
-		Dice dice = new Dice();
+		Player p1 = new Player();
 		
 
-		dice.roll();
-		dice.checkSequential();
-		dice.checkEqual();
-        System.out.println("");
-        dice.checkRollResult();
+//		dice.roll();
+//		dice.checkSequential();
+//		dice.checkEqual();
+//        System.out.println("");
+//        dice.checkRollResult();
 
 				
 		
 		
-//		JOptionPane.showMessageDialog(null,dice.readDice());
-		
-
-	
-
-		
-//		Die die1 = new Die();
-//		Die die2 = new Die();
-//				
-//		Player p1 = new Player();
-//    	playerName = JOptionPane.showInputDialog("What is your name?");
-//
-//		p1.setName(playerName);
-//		p1.setBankBalance(startBalance);
 //		
-//		
+    	playerName = JOptionPane.showInputDialog("What is your name?");
 //
+		p1.setName(playerName);
+		p1.setBankBalance(startBalance);
 //		
 //		bankBalance=startBalance;
-
+	
 		
-		
-//		while (betCount != 5) {
-//			//p1.printDetails();
-//			balanceString = p1.playerBalanceString();
-//			balanceString = balanceString + "\nWould you like to place a bet of $1?";
+		while (betCount != 5) {
+//			p1.printDetails();
+			balanceString = p1.playerBalanceString();
+			balanceString = balanceString + "\nWould you like to place a bet of $1?";
 //			
 			//JOptionP
-//			placeBet = JOptionPane.showConfirmDialog (null, "Would you like to place a bet for $1","Place Bet", placeBet);
-//			if(placeBet == JOptionPane.YES_OPTION) { 
-//			    betAmount = 1;
-//			        if(placeBet == JOptionPane.NO_OPTION) {
-//			         
-//			        }
-//			}
-//			JOptionPane.showMessageDialog(null, betAmount);
-//			JOptionPane.showConfirmDialog(null, balanceString, "Please Answer", JOptionPane.YES_NO_OPTION);
-//			
-//		rollOne = die1.roll();
-//		rollTwo = die2.roll();
-		
-				
-//		rollResults = "Die One: " + rollOne + "\nDie Two: " + rollTwo;
-//		
-//		JOptionPane.showMessageDialog(null,rollResults);
+			placeBet = JOptionPane.showConfirmDialog (null, "Would you like to place a bet for $1","Place Bet", placeBet);
+					rollDice();
 //		
 //		if (rollOne == rollTwo) {
 //			winnings = betAmount *3;
@@ -93,13 +65,22 @@ public class App {
 //			}
 //		}
 //		++betCount;
-//		}
+		}
 //
 //		JOptionPane.showMessageDialog(null,showBalance(bankBalance));
 //
 //		
 //		
 		
+
+	}
+	public static void rollDice() {
+		Dice dice = new Dice();
+		
+		dice.roll();
+		dice.checkRollResult();
+	String rollResults = dice.readDice();
+	JOptionPane.showMessageDialog(null,rollResults);
 
 	}
 	public static String showBalance(int bankBalance) {
