@@ -8,14 +8,16 @@ public class App {
 	public static void main(String[] args) {
 		//Declare variables
 		int startBalance = 6, betCost = 1, betTotal = 5,betAmount = 1, placeBet = 1;
-		int betCount = 0;
+		int betCount = 0 ,totalBets =5;
 		int bankBalance, rollOne, rollTwo, winnings;
 		String balanceString;
 		String playerName, resultString;
 		
-		String rollResults, output;
+		String rollResults, output, resultOutput = "";
 		
 		Player p1 = new Player();
+		
+		int [] winningsTally = new int[totalBets];
 		
 
 
@@ -40,10 +42,15 @@ public class App {
 			placeBet = JOptionPane.showConfirmDialog (null, balanceString,"Place Bet", placeBet);
 			
 			winnings = rollDice(betCount);
+			winningsTally[betCount] = winnings;
 			p1.setBankBalance(p1.getBankBalance()+ winnings);
 			++betCount;
 		}
 
+		for(int counter =0; counter < winningsTally.length; counter++) {
+			resultOutput = resultOutput + "Bet # "+ (counter + 1) + ": " +winningsTally[counter] +"\n";
+			System.out.println(resultOutput);
+		}
 		
 
 	}
