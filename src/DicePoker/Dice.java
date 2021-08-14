@@ -27,7 +27,7 @@ public class Dice {
 	public String readDice() {
 		dieReading ="";
 		for(int counter =0; counter < diceResults.length; counter++) {
-			dieReading = dieReading + "Die "+ (counter + 1) + ": " +diceResults[counter] +"\n";
+			dieReading =dieReading + "Die "+ (counter + 1) + ": " +diceResults[counter] +"   ";
 			System.out.println(dieReading);
 
 

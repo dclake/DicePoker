@@ -18,6 +18,8 @@ public class App {
 		Player p1 = new Player();
 		
 		int [] winningsTally = new int[totalBets];
+		String [] roundResults = new String [5];
+		
 		
 
 
@@ -36,12 +38,24 @@ public class App {
 		
 		while (betCount != 5) {
 //			p1.printDetails();
+			Dice dice = new Dice();
+			dice.roll();
+
+
 			balanceString = p1.playerBalanceString();
 			balanceString = balanceString + "\nWould you like to place a bet of $1?";
 //			
 			placeBet = JOptionPane.showConfirmDialog (null, balanceString,"Place Bet", placeBet);
 			
-			winnings = rollDice(betCount);
+			winnings = dice.checkRollWin(betCost);
+			String resultString1 = dice.checkRollResult()
+					+ "\nWinnings are $" + winnings;
+			
+			String rollResults1 = dice.readDice() + "\n" + resultString1;
+			JOptionPane.showMessageDialog(null,rollResults1, "Bet # "+ (betCount +1), JOptionPane.INFORMATION_MESSAGE);
+
+
+//			winnings = rollDice(betCount);
 			winningsTally[betCount] = winnings;
 			p1.setBankBalance(p1.getBankBalance()+ winnings);
 			++betCount;
