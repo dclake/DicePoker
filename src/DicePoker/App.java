@@ -47,7 +47,7 @@ public class App {
 		ArrayList<Results> playerResult = new ArrayList<Results>();
 
 
-		while (betCount != 5) {
+		while ((betCount != 5) && (p1.getBankBalance() > 0)) {
 			Dice dice = new Dice();
 			dice.roll();
 
@@ -58,29 +58,8 @@ public class App {
 
 			placeBet = JOptionPane.showConfirmDialog (null, balanceString,"Place Bet", placeBet);
 
-			//place bet code here
 			betAmount = p1.placeBet();
-			//			while (search <= 0){
-			//				betString = JOptionPane.showInputDialog("How much would you like to bet?\n"
-			//						+ "Please select an amount between $2 and $4.");
-			//				try {
-			//					betAmount = Integer.parseInt(betString);
-			//					search = Arrays.binarySearch(betOptions, betAmount);
-			//					if(search <= 0) {
-			//						invalidMessage = "Invalid Entry!!! \n"+ betString +" is not a number between "+minBet +" and " + maxBet +".";
-			//						JOptionPane.showMessageDialog(null, invalidMessage,"Invalid Entry !!!", JOptionPane.ERROR_MESSAGE);
-			//					}
-			//				}
-			//				catch (NumberFormatException e) { 
-			//					invalidMessage = "Invalid Entry!!! \n"+ betString +" is not a number between "+minBet +" and " + maxBet +".";
-			//					JOptionPane.showMessageDialog(null, invalidMessage,"Invalid Entry !!!", JOptionPane.ERROR_MESSAGE);
-			//					search = 0;
-			//				}
-			//			}
-
-
-
-
+			
 			winnings = dice.checkRollWin(betAmount);
 			String resultString1 = dice.checkRollResult()
 					+ "\nWinnings are $" + winnings;

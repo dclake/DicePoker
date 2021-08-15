@@ -28,14 +28,14 @@ public class Results {
 		
 	
 		return output;
-	}//end toString
+	}
 	public void printDetails() {
 		String output;
 		
 		output = toString();
 		
 		JOptionPane.showMessageDialog(null, output);
-	}//end printDetails
+	}
 	
 	public int getBetAmount() {
 		return betAmount;
