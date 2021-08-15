@@ -15,17 +15,10 @@ public class App {
 		String balanceString;
 		String playerName, resultString;
 		
-		String rollResults, output, resultLine = "", resultOutput = "";
-		String numbersRolled1;
+		String rollResults ="", output, resultLine = "", resultOutput = "";
+		String numbersRolled;
 		
 		Player p1 = new Player();
-		
-		int [] betNumber = new int [totalBets];
-		int [] betPlaced = new int [totalBets];
-		int [] winningsTally = new int[totalBets];
-		String [] numbersRolled = new String [totalBets];
-//		String [] roundResults = new String [5];
-		
 		
 
 
@@ -33,22 +26,14 @@ public class App {
 				
 		
 		
-//		
     	playerName = JOptionPane.showInputDialog("What is your name?");
-//
+
 		p1.setName(playerName);
 		p1.setBankBalance(startBalance);
 		ArrayList<Results> playerResult = new ArrayList<Results>();
-//		while(youWantToContinue) {
-		    //get a customerName
-		    //get an amount
-		 
-		//		bankBalance=startBalance;
 	
 		
 		while (betCount != 5) {
-			betNumber[betCount] = betCount +1;
-
 			Dice dice = new Dice();
 			dice.roll();
 
@@ -57,22 +42,19 @@ public class App {
 			balanceString = balanceString + "\nWould you like to place a bet of $1?";
 			
 			placeBet = JOptionPane.showConfirmDialog (null, balanceString,"Place Bet", placeBet);
-			betPlaced [betCount] = betAmount;
 					
 			winnings = dice.checkRollWin(betCost);
 			String resultString1 = dice.checkRollResult()
 					+ "\nWinnings are $" + winnings;
-			winningsTally[betCount] = winnings;
 
 			
-			numbersRolled[betCount] = dice.readDice();
-			numbersRolled1 = dice.readDice();
-			String rollResults1 = numbersRolled[betCount] + "\n" + resultString1;
-			JOptionPane.showMessageDialog(null,rollResults1, "Bet # "+ (betCount +1), JOptionPane.INFORMATION_MESSAGE);
+			numbersRolled = dice.readDice();
+			rollResults = numbersRolled + "\n" + resultString1;
+			JOptionPane.showMessageDialog(null,rollResults, "Bet # "+ (betCount +1), JOptionPane.INFORMATION_MESSAGE);
 
 
 			p1.setBankBalance(p1.getBankBalance()+ winnings);
-			playerResult.add(new Results(betCount+1, betAmount, numbersRolled1, winnings));
+			playerResult.add(new Results(betCount+1, betAmount, numbersRolled, winnings));
 			++betCount;
 		}
 
