@@ -9,12 +9,13 @@ public class Dice {
 	
 	private String output;
 	private int winnings;
+	
+	
 
 	
 	static Die die1 = new Die();
 	
-	
-
+	// Rolls multiple dice using the numberOfDice variable and storing results as an array
 	public int[] roll() {
 		while (counter < diceResults.length){
 			diceResults[counter] = die1.roll();
@@ -23,18 +24,19 @@ public class Dice {
 		return diceResults;
     }
 	
+	// Reads the value of multiple dice.
 	public String readDice() {
 		dieReading ="";
-		for(int counter =0; counter < diceResults.length; counter++) {
+		for(counter =0; counter < diceResults.length; counter++) {
 			dieReading =dieReading + "Die "+ (counter + 1) + ": " +diceResults[counter] +"   ";
 		}	
 		return dieReading;
 		}
-
+	// Checks if values from readDice method are sequential
     public boolean checkSequential() {
         boolean result = true;
-        for (int i = 0; i < diceResults.length - 1; i++) {
-            if (((diceResults[i + 1] - diceResults[i]) == 1) ||((diceResults[i + 1] - diceResults[i]) == -1))   {
+        for (counter = 0; counter < diceResults.length - 1; counter++) {
+            if (((diceResults[counter + 1] - diceResults[counter]) == 1) ||((diceResults[counter + 1] - diceResults[counter]) == -1))   {
             } else {
                 result = false;
                 break;
@@ -42,10 +44,11 @@ public class Dice {
         }
 		return result;
     }
+    
     public boolean checkEqual() {
         boolean result = true;
-        for (int i = 0; i < diceResults.length - 1; i++) {
-            if ((diceResults[i + 1] == diceResults[i])) {
+        for (int counter = 0; counter < diceResults.length - 1; counter++) {
+            if ((diceResults[counter + 1] == diceResults[counter])) {
             } else {
                 result = false;
                 break;
