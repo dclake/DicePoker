@@ -28,9 +28,7 @@ public class Dice {
 		dieReading ="";
 		for(int counter =0; counter < diceResults.length; counter++) {
 			dieReading =dieReading + "Die "+ (counter + 1) + ": " +diceResults[counter] +"   ";
-			System.out.println(dieReading);
-
-
+//			System.out.println(dieReading);
 		}	
 		return dieReading;
 		}
@@ -44,10 +42,6 @@ public class Dice {
                 break;
             }
         }
-        if(result)
-            System.out.println("True");
-        else
-            System.out.println("False");
 		return result;
     }
     public boolean checkEqual() {
@@ -59,10 +53,6 @@ public class Dice {
                 break;
             }
         }
-        if(result)
-            System.out.println("True");
-        else
-            System.out.println("False");
 		return result;
     }
     
@@ -79,8 +69,8 @@ public class Dice {
     		rollResult = "nothing";
     		winnings = -betAmount;
     	}
-    	System.out.println(rollResult);
-    	System.out.println(winnings);
+//    	System.out.println(rollResult);
+//    	System.out.println(winnings);
     	return winnings;
     }
     public String checkRollResult() {

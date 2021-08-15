@@ -13,12 +13,15 @@ public class App {
 		String balanceString;
 		String playerName, resultString;
 		
-		String rollResults, output, resultOutput = "";
+		String rollResults, output, resultLine = "", resultOutput = "";
 		
 		Player p1 = new Player();
 		
+		int [] betNumber = new int [totalBets];
+		int [] betPlaced = new int [totalBets];
 		int [] winningsTally = new int[totalBets];
-		String [] roundResults = new String [5];
+		String [] numbersRolled = new String [totalBets];
+//		String [] roundResults = new String [5];
 		
 		
 
@@ -37,6 +40,7 @@ public class App {
 	
 		
 		while (betCount != 5) {
+			betNumber[betCount] = betCount +1;
 //			p1.printDetails();
 			Dice dice = new Dice();
 			dice.roll();
@@ -46,47 +50,42 @@ public class App {
 			balanceString = balanceString + "\nWould you like to place a bet of $1?";
 //			
 			placeBet = JOptionPane.showConfirmDialog (null, balanceString,"Place Bet", placeBet);
-			
+			betPlaced [betCount] = betAmount;
+					
 			winnings = dice.checkRollWin(betCost);
 			String resultString1 = dice.checkRollResult()
 					+ "\nWinnings are $" + winnings;
+			winningsTally[betCount] = winnings;
+
 			
-			String rollResults1 = dice.readDice() + "\n" + resultString1;
+			numbersRolled[betCount] = dice.readDice();
+			String rollResults1 = numbersRolled[betCount] + "\n" + resultString1;
 			JOptionPane.showMessageDialog(null,rollResults1, "Bet # "+ (betCount +1), JOptionPane.INFORMATION_MESSAGE);
 
 
 //			winnings = rollDice(betCount);
-			winningsTally[betCount] = winnings;
 			p1.setBankBalance(p1.getBankBalance()+ winnings);
 			++betCount;
 		}
 
 		for(int counter =0; counter < winningsTally.length; counter++) {
-			resultOutput = resultOutput + "Bet # "+ (counter + 1) + ": " +winningsTally[counter] +"\n";
-			System.out.println(resultOutput);
+			resultLine = resultLine + "Bet # "+ (counter + 1) 
+					+ "  Bet Amount: 1 "
+					+ "  Numbers Rolled: "+ numbersRolled[counter]
+					+ " Winnings: " + winningsTally[counter] +"\n";
+//			System.out.println(resultOutput);
+			
+			
 		}
-		
+		resultOutput = resultLine + "\n"
+				+ "Bank Balance: $ "+ p1.getBankBalance();
+		JOptionPane.showMessageDialog(null,resultOutput, "Game Results", JOptionPane.INFORMATION_MESSAGE);
+
 
 	}
-	public static int rollDice(int betCount) {
-		Dice dice = new Dice();
 		
-		dice.roll();
-		int winnings = dice.checkRollWin(betCost);
-		String resultString = dice.checkRollResult()
-				+ "\nWinnings are $" + winnings;
-		
-		
-	String rollResults = dice.readDice() + "\n" + resultString;
-//	System.out.println(testString);
 
 	
-	JOptionPane.showMessageDialog(null,rollResults, "Bet # "+ (betCount +1), JOptionPane.INFORMATION_MESSAGE);
- return winnings;
-	
-	
-
-	}
 	public static String showBalance(int bankBalance) {
 		String balanceMessage = "Your Bank balance is $"+ bankBalance;
 		return balanceMessage;
