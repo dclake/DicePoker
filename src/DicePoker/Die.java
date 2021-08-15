@@ -8,10 +8,11 @@ public class Die {
 		this.dieValue = 1;
 	}
 	
-	public int setDieValue(int dieValue) {
-		return dieValue;
-	}
+//	public int setDieValue(int dieValue) {
+//		return dieValue;
+//	}
 	
+	//Method for rolling a die - Uses a random value of between the number of sides
 	public int roll() {
 		dieValue = (int)(Math.random()* numberOfSides)+ smallestDieSide;
 		return dieValue;
