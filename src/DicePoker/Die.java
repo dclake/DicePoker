@@ -8,7 +8,9 @@ public class Die {
 		this.dieValue = 1;
 	}
 
-	//Method for rolling a die - Uses a random value of between the number of sides
+	/**Method for rolling a die - Uses a random value of between the number of sides
+	 * @return dieValue
+	 */
 	public int roll() {
 		dieValue = (int)(Math.random()* numberOfSides)+ smallestDieSide;
 		return dieValue;
