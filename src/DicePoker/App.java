@@ -16,6 +16,7 @@ public class App {
 		String playerName, resultString;
 		
 		String rollResults, output, resultLine = "", resultOutput = "";
+		String numbersRolled1;
 		
 		Player p1 = new Player();
 		
@@ -47,7 +48,6 @@ public class App {
 		
 		while (betCount != 5) {
 			betNumber[betCount] = betCount +1;
-//			p1.printDetails();
 
 			Dice dice = new Dice();
 			dice.roll();
@@ -55,7 +55,7 @@ public class App {
 
 			balanceString = p1.playerBalanceString();
 			balanceString = balanceString + "\nWould you like to place a bet of $1?";
-//			
+			
 			placeBet = JOptionPane.showConfirmDialog (null, balanceString,"Place Bet", placeBet);
 			betPlaced [betCount] = betAmount;
 					
@@ -66,35 +66,23 @@ public class App {
 
 			
 			numbersRolled[betCount] = dice.readDice();
+			numbersRolled1 = dice.readDice();
 			String rollResults1 = numbersRolled[betCount] + "\n" + resultString1;
 			JOptionPane.showMessageDialog(null,rollResults1, "Bet # "+ (betCount +1), JOptionPane.INFORMATION_MESSAGE);
 
 
-//			winnings = rollDice(betCount);
 			p1.setBankBalance(p1.getBankBalance()+ winnings);
-			playerResult.add(new Results(betCount+1, betAmount, rollResults1, winnings));
+			playerResult.add(new Results(betCount+1, betAmount, numbersRolled1, winnings));
 			++betCount;
 		}
 
-		for(int counter =0; counter < winningsTally.length; counter++) {
-			resultLine = resultLine + "Bet # "+ (counter + 1) 
-					+ "  Bet Amount: 1 "
-					+ "  Numbers Rolled: "+ numbersRolled[counter]
-					+ " Winnings: " + winningsTally[counter] +"\n";
-//			System.out.println(resultOutput);
-			
-			
-		}
-		
+		for(Results tempStudent : playerResult) {
+			resultOutput = resultOutput + tempStudent.toString() + "\n";
 
-		resultOutput = resultLine + "\n"
+		}	
+		resultOutput = resultOutput + "\n"
 				+ "Bank Balance: $ "+ p1.getBankBalance();
 		JOptionPane.showMessageDialog(null,resultOutput, "Game Results", JOptionPane.INFORMATION_MESSAGE);
-		for(Results tempStudent : playerResult) {
-			tempStudent.printDetails();
-		}	
-
-
 	}
 		
 
