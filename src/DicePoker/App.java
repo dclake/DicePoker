@@ -1,56 +1,95 @@
 package DicePoker;
 
 import java.util.ArrayList;
-
+import java.util.Arrays;
 import javax.swing.JOptionPane;
 
 public class App {
 
-	private static final int betCost = 1;
 	public static void main(String[] args) {
 		//Declare variables
-		int startBalance = 6, betCost = 1, betTotal = 5,betAmount = 1, placeBet = 1;
-		int betCount = 0 ,totalBets =5;
-		int bankBalance, rollOne, rollTwo, winnings;
+		int startBalance = 6, betCost = 1, betAmount, placeBet = 1;
+		//		int minBet = 1, maxBet = 4;
+		//		int [] betOptions = new int [maxBet];
+		int betCount = 0;
+		int winnings;
 		String balanceString;
-		String playerName, resultString;
-		
-		String rollResults ="", output, resultLine = "", resultOutput = "";
+		String playerName;
+		String betString;
+
+		String rollResults ="", resultOutput = "";
 		String numbersRolled;
-		
+
+		int counter;
+		int search = 0;
+		int arrayStart;
+
+		String invalidMessage;
+
 		Player p1 = new Player();
-		
+
+		//		arrayStart = minBet-1;
+		//		for (counter = 0; counter < maxBet; counter++) {
+		//			betOptions[counter]=arrayStart;
+		//			arrayStart ++;
+		//		}
 
 
 
-				
-		
-		
-    	playerName = JOptionPane.showInputDialog("What is your name?");
+
+
+
+
+		playerName = JOptionPane.showInputDialog("What is your name?");
 
 		p1.setName(playerName);
 		p1.setBankBalance(startBalance);
 		ArrayList<Results> playerResult = new ArrayList<Results>();
-	
-		
+
+
 		while (betCount != 5) {
 			Dice dice = new Dice();
 			dice.roll();
 
 
 			balanceString = p1.playerBalanceString();
-			balanceString = balanceString + "\nWould you like to place a bet of $1?";
-			
+			balanceString = balanceString + "\nWould you like to place a bet?";
+
+
 			placeBet = JOptionPane.showConfirmDialog (null, balanceString,"Place Bet", placeBet);
-					
-			winnings = dice.checkRollWin(betCost);
+
+			//place bet code here
+			betAmount = p1.placeBet();
+			//			while (search <= 0){
+			//				betString = JOptionPane.showInputDialog("How much would you like to bet?\n"
+			//						+ "Please select an amount between $2 and $4.");
+			//				try {
+			//					betAmount = Integer.parseInt(betString);
+			//					search = Arrays.binarySearch(betOptions, betAmount);
+			//					if(search <= 0) {
+			//						invalidMessage = "Invalid Entry!!! \n"+ betString +" is not a number between "+minBet +" and " + maxBet +".";
+			//						JOptionPane.showMessageDialog(null, invalidMessage,"Invalid Entry !!!", JOptionPane.ERROR_MESSAGE);
+			//					}
+			//				}
+			//				catch (NumberFormatException e) { 
+			//					invalidMessage = "Invalid Entry!!! \n"+ betString +" is not a number between "+minBet +" and " + maxBet +".";
+			//					JOptionPane.showMessageDialog(null, invalidMessage,"Invalid Entry !!!", JOptionPane.ERROR_MESSAGE);
+			//					search = 0;
+			//				}
+			//			}
+
+
+
+
+			winnings = dice.checkRollWin(betAmount);
 			String resultString1 = dice.checkRollResult()
 					+ "\nWinnings are $" + winnings;
 
-			
+
 			numbersRolled = dice.readDice();
 			rollResults = numbersRolled + "\n" + resultString1;
 			JOptionPane.showMessageDialog(null,rollResults, "Bet # "+ (betCount +1), JOptionPane.INFORMATION_MESSAGE);
+			System.out.println(betAmount);
 
 
 			p1.setBankBalance(p1.getBankBalance()+ winnings);
@@ -58,27 +97,20 @@ public class App {
 			++betCount;
 		}
 
-		for(Results tempStudent : playerResult) {
-			resultOutput = resultOutput + tempStudent.toString() + "\n";
+		for(Results game : playerResult) {
+			resultOutput = resultOutput + game.toString() + "\n";
 
 		}	
 		resultOutput = resultOutput + "\n"
 				+ "Bank Balance: $ "+ p1.getBankBalance();
 		JOptionPane.showMessageDialog(null,resultOutput, "Game Results", JOptionPane.INFORMATION_MESSAGE);
 	}
-		
 
-	
-	public static String showBalance(int bankBalance) {
-		String balanceMessage = "Your Bank balance is $"+ bankBalance;
-		return balanceMessage;
-				
-	}
-	
-	
-	
-		
-	}
-	
-	
+
+
+
+
+}
+
+
 

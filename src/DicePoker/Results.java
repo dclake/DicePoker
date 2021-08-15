@@ -21,7 +21,8 @@ public class Results {
 	}
 	public String toString() {
 		String output = "";
-		output = output + "Bet # "+ (betNumber) + "  Bet Amount: 1 ";
+		output = output + "Bet # " + betNumber; 
+		output = output	+ "  Bet Amount: " + betAmount;
 		output = output + "  Numbers Rolled: "+ numbersRolled;
 		output = output + " Winnings: " + winnings;
 		
