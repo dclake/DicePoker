@@ -18,7 +18,6 @@ public class Dice {
 	public int[] roll() {
 		while (counter < diceResults.length){
 			diceResults[counter] = die1.roll();
-			System.out.println(diceResults[counter]);
 			counter++;
 		}
 		return diceResults;
@@ -28,7 +27,6 @@ public class Dice {
 		dieReading ="";
 		for(int counter =0; counter < diceResults.length; counter++) {
 			dieReading =dieReading + "Die "+ (counter + 1) + ": " +diceResults[counter] +"   ";
-//			System.out.println(dieReading);
 		}	
 		return dieReading;
 		}
@@ -58,37 +56,43 @@ public class Dice {
     
     public int checkRollWin(int betAmount) {
     	if(checkSequential() == true) {
-    		rollResult = "sequential";    	
+    		setRollResult("sequential");    	
     		winnings = betAmount *2; 
     	}
     	else if (checkEqual()==true) {
-    		rollResult = "equal";
+    		setRollResult("equal");
     		winnings = betAmount * 3;
     	}
     	else {
-    		rollResult = "nothing";
+    		setRollResult("nothing");
     		winnings = -betAmount;
     	}
-//    	System.out.println(rollResult);
-//    	System.out.println(winnings);
+
     	return winnings;
     }
     public String checkRollResult() {
     	if(checkSequential() == true) {
-    		rollResult = "sequential";
+    		setRollResult("sequential");
     		output = "The numbers are sequential. You win double your bet!";
     	
     	}
     	else if (checkEqual()==true) {
-    		rollResult = "equal";
+    		setRollResult("equal");
     		output = "The numbers are identical. You win triple your bet!";
     	}
     	else {
-    		rollResult = "nothing";
+    		setRollResult("nothing");
     		output = "No winning patterns. You lost your bet";
     	}
-    	System.out.println(output);
     	return output;
     }
+
+	public String getRollResult() {
+		return rollResult;
+	}
+
+	public void setRollResult(String rollResult) {
+		this.rollResult = rollResult;
+	}
 
 }

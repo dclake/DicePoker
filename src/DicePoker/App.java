@@ -1,5 +1,7 @@
 package DicePoker;
 
+import java.util.ArrayList;
+
 import javax.swing.JOptionPane;
 
 public class App {
@@ -35,13 +37,18 @@ public class App {
 //
 		p1.setName(playerName);
 		p1.setBankBalance(startBalance);
-//		
-//		bankBalance=startBalance;
+		ArrayList<Results> playerResult = new ArrayList<Results>();
+//		while(youWantToContinue) {
+		    //get a customerName
+		    //get an amount
+		 
+		//		bankBalance=startBalance;
 	
 		
 		while (betCount != 5) {
 			betNumber[betCount] = betCount +1;
 //			p1.printDetails();
+
 			Dice dice = new Dice();
 			dice.roll();
 
@@ -65,6 +72,7 @@ public class App {
 
 //			winnings = rollDice(betCount);
 			p1.setBankBalance(p1.getBankBalance()+ winnings);
+			playerResult.add(new Results(betCount+1, betAmount, rollResults1, winnings));
 			++betCount;
 		}
 
@@ -77,9 +85,14 @@ public class App {
 			
 			
 		}
+		
+
 		resultOutput = resultLine + "\n"
 				+ "Bank Balance: $ "+ p1.getBankBalance();
 		JOptionPane.showMessageDialog(null,resultOutput, "Game Results", JOptionPane.INFORMATION_MESSAGE);
+		for(Results tempStudent : playerResult) {
+			tempStudent.printDetails();
+		}	
 
 
 	}
