@@ -32,7 +32,7 @@ public class App {
 				+ "Would you like to play a new game?";
 		while (true) {
 
-			if (JOptionPane.showConfirmDialog(null, newGameText, "WARNING",
+			if (JOptionPane.showConfirmDialog(null, newGameText, "New Game",
 					JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) {
 
 				playerName = JOptionPane.showInputDialog("What is your name?");
@@ -45,7 +45,6 @@ public class App {
 				while ((betCount != 5) && (p1.getBankBalance() > 0)) {
 					Dice dice = new Dice();
 					dice.roll();
-
 
 					balanceString = p1.playerBalanceString();
 					balanceString = balanceString + "\nWould you like to place a bet?";
