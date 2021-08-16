@@ -15,6 +15,17 @@ public class Player {
 
 	public Player() {
 	}
+	
+	public Player(String name, int bankBalance) {
+		setName(name);
+		setBankBalance(bankBalance);
+	}
+	
+	public String highScore() {
+		String output = bankBalance + "   " + name;
+		return output;
+		
+	}
 
 	public String playerBalanceString() {
 		String output;
