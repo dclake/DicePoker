@@ -68,7 +68,10 @@ public class App {
 					p1.setBankBalance(p1.getBankBalance()+ winnings);
 					playerResult.add(new Results(betCount+1, betAmount, numbersRolled, winnings));
 					++betCount;
-					}}
+					}
+					else{
+						break;}
+					}
 				betCount =0;
 
 				for(Results game : playerResult) {
