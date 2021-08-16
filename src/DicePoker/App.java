@@ -48,31 +48,33 @@ public class App {
 
 					balanceString = p1.playerBalanceString();
 					balanceString = balanceString + "\nWould you like to place a bet?";
-					
+
 
 					if (JOptionPane.showConfirmDialog(null, balanceString, "Place Bet",
 							JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) {
 
-					betAmount = p1.placeBet();
+						betAmount = p1.placeBet();
 
-					winnings = dice.checkRollWin(betAmount);
-					String resultString1 = dice.checkRollResult()
-							+ "\nWinnings are $" + winnings;
+						winnings = dice.checkRollWin(betAmount);
+						String resultString1 = dice.checkRollResult()
+								+ "\nWinnings are $" + winnings;
 
 
-					numbersRolled = dice.readDice();
-					rollResults = numbersRolled + "\n" + resultString1;
-					JOptionPane.showMessageDialog(null,rollResults, "Bet # "+ (betCount +1), JOptionPane.INFORMATION_MESSAGE);
-					System.out.println(betAmount);
+						numbersRolled = dice.readDice();
+						rollResults = numbersRolled + "\n" + resultString1;
+						JOptionPane.showMessageDialog(null,rollResults, "Bet # "+ (betCount +1), JOptionPane.INFORMATION_MESSAGE);
+						System.out.println(betAmount);
 
-					p1.setBankBalance(p1.getBankBalance()+ winnings);
-					playerResult.add(new Results(betCount+1, betAmount, numbersRolled, winnings));
-					++betCount;
+						p1.setBankBalance(p1.getBankBalance()+ winnings);
+						playerResult.add(new Results(betCount+1, betAmount, numbersRolled, winnings));
+						++betCount;
 					}
 					else{
 						break;}
-					}
+				}
 				betCount =0;
+				resultOutput ="";
+
 
 				for(Results game : playerResult) {
 					resultOutput = resultOutput + game.toString() + "\n";
