@@ -86,7 +86,10 @@ public class App {
 				output = "NewGame";
 
 			} else {
-				output = "No";
+				String byeMessage = "We're sorry to see you go so soon.\n"
+						+ "Bye!!!";
+				JOptionPane.showMessageDialog(null,byeMessage, "Exit", JOptionPane.INFORMATION_MESSAGE);
+				System.exit(0);
 
 
 			}
