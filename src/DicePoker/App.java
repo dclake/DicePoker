@@ -48,9 +48,10 @@ public class App {
 
 					balanceString = p1.playerBalanceString();
 					balanceString = balanceString + "\nWould you like to place a bet?";
+					
 
-
-					placeBet = JOptionPane.showConfirmDialog (null, balanceString,"Place Bet", placeBet);
+					if (JOptionPane.showConfirmDialog(null, balanceString, "Place Bet",
+							JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) {
 
 					betAmount = p1.placeBet();
 
@@ -67,7 +68,7 @@ public class App {
 					p1.setBankBalance(p1.getBankBalance()+ winnings);
 					playerResult.add(new Results(betCount+1, betAmount, numbersRolled, winnings));
 					++betCount;
-				}
+					}}
 				betCount =0;
 
 				for(Results game : playerResult) {
