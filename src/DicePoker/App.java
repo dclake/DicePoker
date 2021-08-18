@@ -12,6 +12,7 @@ public class App {
 	public static void main(String[] args) {
 		//Declare variables
 		int startBalance = 6, betAmount, placeBet = 1;
+		int allowedBets = 5;
 		int betCount = 0;
 		int winnings;
 		int newGame = 0;
@@ -42,7 +43,7 @@ public class App {
 				ArrayList<Results> playerResult = new ArrayList<Results>();
 
 
-				while ((betCount != 5) && (p1.getBankBalance() > 0)) {
+				while ((betCount != allowedBets) && (p1.getBankBalance() > 0)) {
 					Dice dice = new Dice();
 					dice.roll();
 
