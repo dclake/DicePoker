@@ -22,6 +22,7 @@ public class App {
 		String rollResults ="", resultOutput = "";
 		String numbersRolled;
 		String newGameText;
+		String parsedHighScore;
 		String output;
 
 
@@ -43,15 +44,15 @@ public class App {
 
 
 				while ((betCount != allowedBets) && (p1.getBankBalance() > 0)) {
-					
+
 					balanceString = p1.playerBalanceString();
 					balanceString = balanceString + "\nWould you like to place a bet?";
-					
+
 					Dice dice = new Dice();
 
 					if (JOptionPane.showConfirmDialog(null, balanceString, "Place Bet",
 							JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) {
-						
+
 						dice.roll();
 
 						betAmount = p1.placeBet();
@@ -87,18 +88,15 @@ public class App {
 				JOptionPane.showMessageDialog(null,resultOutput, "Game Results", JOptionPane.INFORMATION_MESSAGE);
 
 				player.add(new Player(playerName, bankBalance));
-
-
-//				output = "NewGame";
-
+				
+				//Code executed if "No" is selected for the New Game Option
 			} else {
 				String byeMessage = "We're sorry to see you go so soon.\n"
 						+ "Bye!!!";
 				JOptionPane.showMessageDialog(null,byeMessage, "Exit", JOptionPane.INFORMATION_MESSAGE);
 				System.exit(0);
-
-
 			}
+			
 			//Create an Array for parsing contents of Player array list
 			String [] highScores = new String[player.size()];
 			resultOutput= "";
@@ -108,29 +106,23 @@ public class App {
 				highScores[counter] = resultOutput;
 				counter ++;	
 			}
-			
+
 			//Sort player information list and parsing as text
-		    Arrays.sort(highScores, Collections.reverseOrder());
-			output = "";
+			Arrays.sort(highScores, Collections.reverseOrder());
+			parsedHighScore = "";
 			for(int loop = 0; loop < highScores.length; loop++) {
-				output = output + highScores[loop] +"\n ";
+				parsedHighScore = parsedHighScore + highScores[loop] +"\n ";
 			}
-			
-			//Create text for High Score display
+
+			//Create text for High Score Table display
 			String highScoreString =  String.format("%12s %-40s", "Bank Balance", "Player Name")
 					+ "\n" 
 					+"-----------------------------" + "\n"
-					+output;
-
+					+parsedHighScore;
+			//Display High Score Table
 			JOptionPane.showMessageDialog(null,highScoreString, "High Score", JOptionPane.INFORMATION_MESSAGE);
-
-
 		}
-
-
-
 	}
-
 }
 
 
