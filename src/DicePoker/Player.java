@@ -22,8 +22,8 @@ public class Player {
 	}
 	
 	public String highScore() {
-		String output = bankBalance + "   " + name;
-		return output;
+		return String.format("%-19s %-40s",
+                bankBalance, name);
 		
 	}
 
@@ -32,8 +32,6 @@ public class Player {
 
 		output = "Hey " +this.name;
 		output = output + ", your bank balance is $" +this.bankBalance + ".";
-		//output = output + "\nIn this round you won $" +this.winnings +".";
-
 		return output;
 	}//end toString
 
@@ -69,6 +67,13 @@ public class Player {
 				if(search <= 0) {
 					String invalidMessage = "Invalid Entry!!! \n"+ betString +" is not a number between "+minBet +" and " + maxBet +".";
 					JOptionPane.showMessageDialog(null, invalidMessage,"Invalid Entry !!!", JOptionPane.ERROR_MESSAGE);
+				}
+				else {
+					if (betAmount > bankBalance) {
+						String invalidMessage = "Sorry, you cannot bet"+ betString +". Bet amount is larger than bank balance of "+ bankBalance;
+						JOptionPane.showMessageDialog(null, invalidMessage,"Invalid Entry !!!", JOptionPane.ERROR_MESSAGE);
+						
+					}
 				}
 			}
 			catch (NumberFormatException e) { 
