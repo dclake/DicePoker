@@ -74,10 +74,11 @@ public class App {
 					else{
 						break;}
 				}
+				//Initialize variables
 				betCount =0;
 				resultOutput ="";
-
-
+				
+				//Parse contents of Results Array list to a string
 				for(Results game : playerResult) {
 					resultOutput = resultOutput + game.toString() + "\n";
 
