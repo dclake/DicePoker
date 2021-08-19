@@ -2,14 +2,13 @@ package DicePoker;
 
 public class Dice {
 	private int numberOfDice =2;
-	private int counter =0;
+//	private int counter =0;
 	
 	
 	private int[] diceResults = new int[numberOfDice];
 	private String diceReading;
 	private String rollResult;
 	private String winMessage;
-	private int winnings;
 
 
 
@@ -21,6 +20,7 @@ public class Dice {
 	 * @return diceResults
 	 */
 	public int[] roll() {
+		int counter = 0;
 		while (counter < diceResults.length){
 			diceResults[counter] = die1.roll();
 			counter++;
@@ -33,6 +33,7 @@ public class Dice {
 	 */
 	public String readDice() {
 		diceReading ="";
+		int counter = 0;
 		for(counter =0; counter < diceResults.length; counter++) {
 			diceReading =diceReading + "Die "+ (counter + 1) + ": " +diceResults[counter] +"   ";
 		}	
@@ -44,6 +45,7 @@ public class Dice {
 	 */
 	public boolean checkSequential() {
 		boolean result = true;
+		int counter =0;
 		for (counter = 0; counter < diceResults.length - 1; counter++) {
 			if (((diceResults[counter + 1] - diceResults[counter]) == 1) ||((diceResults[counter + 1] - diceResults[counter]) == -1))   {
 			} else {
@@ -75,6 +77,7 @@ public class Dice {
 	 * @return winnings
 	 */
 	public int checkRollWin(int betAmount) {
+		int winnings;
 		if(checkSequential() == true) {
 			setRollResult("sequential");    	
 			winnings = betAmount *2; 

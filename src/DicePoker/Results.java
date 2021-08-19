@@ -13,27 +13,37 @@ public class Results {
 		
 	}
 	
+	/**Constructor for Results class
+	 * @param betNumber
+	 * @param betAmount
+	 * @param numbersRolled
+	 * @param winnings
+	 */
 	public Results(int betNumber, int betAmount, String numbersRolled, int winnings) {
 		setBetNumber(betNumber);
 		setBetAmount(betAmount);
 		setNumbersRolled(numbersRolled);
 		setWinnings(winnings);
 	}
+	
+	/**toString for the Results Class
+	 *@return output
+	 */
 	public String toString() {
 		String output = "";
 		output = output + "Bet # " + betNumber; 
 		output = output	+ "  Bet Amount: " + betAmount;
 		output = output + "  Numbers Rolled: "+ numbersRolled;
 		output = output + " Winnings: " + winnings;
-		
-	
 		return output;
 	}
+	
+	/**Displays results
+	 * 
+	 */
 	public void printDetails() {
 		String output;
-		
 		output = toString();
-		
 		JOptionPane.showMessageDialog(null, output);
 	}
 	

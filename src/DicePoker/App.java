@@ -41,8 +41,8 @@ public class App {
 				p1.setName(playerName);
 				p1.setBankBalance(startBalance);
 				ArrayList<Results> playerResult = new ArrayList<Results>();
-
-
+				
+				//Allow player to place bet only while end if you run out of money, or you have no more attempts left (you made all five bets)
 				while ((betCount != allowedBets) && (p1.getBankBalance() > 0)) {
 
 					balanceString = p1.playerBalanceString();
@@ -53,9 +53,10 @@ public class App {
 					if (JOptionPane.showConfirmDialog(null, balanceString, "Place Bet",
 							JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) {
 
+						betAmount = p1.placeBet();
+						
 						dice.roll();
 
-						betAmount = p1.placeBet();
 
 						winnings = dice.checkRollWin(betAmount);
 						String resultString1 = dice.checkRollResult()

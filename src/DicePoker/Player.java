@@ -15,49 +15,49 @@ public class Player {
 
 	public Player() {
 	}
-	
+
 	public Player(String name, int bankBalance) {
 		setName(name);
 		setBankBalance(bankBalance);
 	}
-	
+
 	public String highScore() {
 		return String.format("%-19s %-40s",
-                bankBalance, name);
-		
+				bankBalance, name);
+
 	}
 
+	/**Produces a String with the player's bank balance.
+	 * @return balanceString
+	 */
 	public String playerBalanceString() {
-		String output;
+		String balanceString;
 
-		output = "Hey " +this.name;
-		output = output + ", your bank balance is $" +this.bankBalance + ".";
-		return output;
-	}//end toString
+		balanceString = "Hey " +this.name;
+		balanceString =  balanceString + ", your bank balance is $" +this.bankBalance + ".";
+		return balanceString;
+	}
 
-
-	public String printDetails() {
-		String output;
-
-		output = toString();
-
-		JOptionPane.showMessageDialog(null, output);
-		return output;
-	}//end printDetails
-
+	/** Allows the player to place a varying bet amount between a predefined minimum and maximum amount
+	 * @return betAmount
+	 */
 	public int placeBet() {
+
 		int counter;
 		int search = 0;
 		int arrayStart;
 		int minBet = 1, maxBet = 4;
 		int [] betOptions = new int [maxBet+1];
-		
+
+		//Builds an array of possible bet options
 		arrayStart = minBet-1;
 		for (counter = 0; counter < maxBet+1; counter++) {
 			betOptions[counter]=arrayStart;
 			arrayStart ++;
 		}
 		int betAmount = 0;
+
+		//Allows player to input data and verifies input
 		while (search <= 0){
 			String betString = JOptionPane.showInputDialog("How much would you like to bet?\n"
 					+ "Please select an amount between " + minBet + " and " + maxBet);
@@ -72,7 +72,7 @@ public class Player {
 					if (betAmount > bankBalance) {
 						String invalidMessage = "Sorry, you cannot bet"+ betString +". Bet amount is larger than bank balance of "+ bankBalance;
 						JOptionPane.showMessageDialog(null, invalidMessage,"Invalid Entry !!!", JOptionPane.ERROR_MESSAGE);
-						
+
 					}
 				}
 			}
@@ -83,8 +83,8 @@ public class Player {
 			}
 		}
 		return betAmount;
-
 	}
+	
 	public String getName() {
 		return name;
 	}
