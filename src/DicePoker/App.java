@@ -15,7 +15,6 @@ public class App {
 		int allowedBets = 5;
 		int betCount = 0;
 		int winnings;
-		int newGame = 0;
 		String balanceString;
 		String playerName;
 
@@ -23,11 +22,9 @@ public class App {
 		String numbersRolled;
 		String newGameText;
 		String parsedHighScore;
-		String output;
 
 
-		Player p1 = new Player();
-		ArrayList<Player> player = new ArrayList<Player>();
+		ArrayList<Player> player = new ArrayList<Player>();//Create Array list for players which is used for high scores
 
 		newGameText = "Welcome to Dice Poker.\n"
 				+ "Would you like to play a new game?";
@@ -37,6 +34,8 @@ public class App {
 					JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) {
 
 				playerName = JOptionPane.showInputDialog("What is your name?");
+				Player p1 = new Player(); //create a new player object for use only within this loop
+
 
 				p1.setName(playerName);
 				p1.setBankBalance(startBalance);
@@ -48,7 +47,7 @@ public class App {
 					balanceString = p1.playerBalanceString();
 					balanceString = balanceString + "\nWould you like to place a bet?";
 
-					Dice dice = new Dice();
+					Dice dice = new Dice();//Create new Dice object
 
 					if (JOptionPane.showConfirmDialog(null, balanceString, "Place Bet",
 							JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) {
@@ -56,20 +55,19 @@ public class App {
 						betAmount = p1.placeBet();
 						
 						dice.roll();
-
-
+						
+						//Code for obtaining and displaying winnings
 						winnings = dice.checkRollWin(betAmount);
 						String resultString1 = dice.checkRollResult()
 								+ "\nWinnings are $" + winnings;
-
-
+						
+						//Code for displaying results of roll
 						numbersRolled = dice.readDice();
 						rollResults = numbersRolled + "\n" + resultString1;
 						JOptionPane.showMessageDialog(null,rollResults, "Bet # "+ (betCount +1), JOptionPane.INFORMATION_MESSAGE);
-						System.out.println(betAmount);
 
-						p1.setBankBalance(p1.getBankBalance()+ winnings);
-						playerResult.add(new Results(betCount+1, betAmount, numbersRolled, winnings));
+						p1.setBankBalance(p1.getBankBalance()+ winnings);//Set player's new bank balance
+						playerResult.add(new Results(betCount+1, betAmount, numbersRolled, winnings));//Create new result object in Reults Array list
 						++betCount;
 					}
 					else{
@@ -83,12 +81,14 @@ public class App {
 				for(Results game : playerResult) {
 					resultOutput = resultOutput + game.toString() + "\n";
 
-				}	
+				}
+				//Display the results as well as ending bank balance
 				int bankBalance = p1.getBankBalance();
 				resultOutput = resultOutput + "\n"
 						+ "Bank Balance: $ "+ bankBalance;
 				JOptionPane.showMessageDialog(null,resultOutput, "Game Results", JOptionPane.INFORMATION_MESSAGE);
-
+				
+				//Create new Player Object for displaying High Scores
 				player.add(new Player(playerName, bankBalance));
 				
 				//Code executed if "No" is selected for the New Game Option
