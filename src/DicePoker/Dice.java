@@ -8,7 +8,7 @@ public class Dice {
 	private int[] diceResults = new int[numberOfDice];
 	private String diceReading;
 	private String rollResult;
-	private String winMessage;
+//	private String winMessage;
 
 
 
@@ -97,6 +97,7 @@ public class Dice {
 	 * @return winMessage
 	 */
 	public String checkRollResult() {
+		String winMessage;
 		if(checkSequential() == true) {
 			setRollResult("sequential");
 			winMessage = "The numbers are sequential. You win double your bet!";

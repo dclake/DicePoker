@@ -6,10 +6,9 @@ import javax.swing.JOptionPane;
 
 public class Player {
 
-	private String name;
-	private int winnings;
-	private int bankBalance;
-
+	private String name;//Player's Name
+	private int winnings; //Player's winnings at the end of each round/bet
+	private int bankBalance; //Player's bank balance
 
 
 
@@ -21,6 +20,9 @@ public class Player {
 		setBankBalance(bankBalance);
 	}
 
+	/**	Produces string for high scores
+	 * @return bankBalance, name
+	 */
 	public String highScore() {
 		return String.format("%-19s %-40s",
 				bankBalance, name);
@@ -34,7 +36,7 @@ public class Player {
 		String balanceString;
 
 		balanceString = "Hey " +this.name;
-		balanceString =  balanceString + ", your bank balance is $" +this.bankBalance + ".";
+		balanceString =  balanceString + ", your bank balance is £" +this.bankBalance + ".";
 		return balanceString;
 	}
 

@@ -11,10 +11,10 @@ public class App {
 
 	public static void main(String[] args) {
 		//Declare variables
-		int startBalance = 6, betAmount;
-		int allowedBets = 5;
-		int betCount = 0;
-		int winnings;
+		int startBalance = 6; //Sets the starting Bank Balance
+		int allowedBets = 5; //Sets the number of bets allowed
+		int betCount = 0; //Counter used for bets
+		int winnings, betAmount;
 		String balanceString;
 		String playerName;
 
@@ -59,7 +59,7 @@ public class App {
 						//Code for obtaining and displaying winnings
 						winnings = dice.checkRollWin(betAmount);
 						String resultString1 = dice.checkRollResult()
-								+ "\nWinnings are $" + winnings;
+								+ "\nWinnings are £" + winnings;
 						
 						//Code for displaying results of roll
 						numbersRolled = dice.readDice();
@@ -85,7 +85,7 @@ public class App {
 				//Display the results as well as ending bank balance
 				int bankBalance = p1.getBankBalance();
 				resultOutput = resultOutput + "\n"
-						+ "Bank Balance: $ "+ bankBalance;
+						+ "Bank Balance: £ "+ bankBalance;
 				JOptionPane.showMessageDialog(null,resultOutput, "Game Results", JOptionPane.INFORMATION_MESSAGE);
 				
 				//Create new Player Object for displaying High Scores
